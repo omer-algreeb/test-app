@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: omer
+  password: omer
+  host: localhost
+
+development:
+  <<: *default
+  database: corona_development
+
+test:
+  <<: *default
+  database: corona_test
+
+production:
+  <<: *default
+  database: corona_production
+  username: corona
+  password: <%= ENV['CORONA_DATABASE_PASSWORD'] %>
