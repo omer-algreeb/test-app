@@ -1,8 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
+<% if notice %>
+  <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><%= notice %></strong> .
+  </div>
+<% end %>
+<div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Posts</h3>
       </div>
@@ -24,9 +27,9 @@
                 <td><%= post.name %></td>
                 <td><%= post.text %></td>
                 <td><%= post.date %></td>
-                <td><%= link_to 'Show', post %></td>
-                <td><%= link_to 'Edit', edit_post_path(post) %></td>
-                <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', post, class: "btn btn-outline-info" %></td>
+                <td><%= link_to 'Edit', edit_post_path(post), class: "btn btn-outline-warning" %></td>
+                <td><%= link_to 'Destroy', post, class: "btn btn-outline-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
@@ -34,8 +37,6 @@
       </div>
 
       <div class="panel-footer">
-        <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
+        <%= link_to 'New Post', new_post_path, class: "btn btn-outline-success" %>
       </div>
     </div>
-  </div>
-</div>
