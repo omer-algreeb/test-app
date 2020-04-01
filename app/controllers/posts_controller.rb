@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  layout :products_layout
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -70,5 +71,9 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:name, :text, :date)
+    end
+
+    def products_layout
+      I18n.locale == :ar ? "layout_rtl" : "application"
     end
 end
